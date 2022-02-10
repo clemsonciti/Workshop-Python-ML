@@ -19,7 +19,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2020-05-15 18:39:07 -0400">
+    <meta http-equiv="last-modified" content="2022-02-10 18:19:54 -0500">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -27,6 +27,8 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/lesson.css" />
     <link rel="stylesheet" type="text/css" href="../assets/css/syntax.css" />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+
 
     
 
@@ -46,7 +48,7 @@
     <link rel="icon" type="image/png" href="../assets/favicons/swc/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="../assets/favicons/swc/favicon-16x16.png" sizes="16x16" />
     <link rel="icon" type="image/png" href="../assets/favicons/swc/favicon-128.png" sizes="128x128" />
-    <meta name="application-name" content="Software Carpentry - Lesson Title"/>
+    <meta name="application-name" content="Software Carpentry - Introduction to Machine Learning using Python"/>
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-TileImage" content="../assets/favicons/swc/mstile-144x144.png" />
     <meta name="msapplication-square70x70logo" content="../assets/favicons/swc/mstile-70x70.png" />
@@ -63,7 +65,7 @@
 	<![endif]-->
 
   <title>
-  Discussion &ndash; Lesson Title
+  Detailed explanation on Decision Tree &ndash; Introduction to Machine Learning using Python
   </title>
 
   </head>
@@ -73,11 +75,10 @@
 
 
 <div class="panel panel-default life-cycle">
-  <div id="life-cycle" class="panel-body pre-alpha">
-    This lesson is still being designed and assembled (Pre-Alpha version)
+  <div id="life-cycle" class="panel-body beta">
+    This lesson is being piloted (Beta version)
   </div>
 </div>
-
 
 
 
@@ -123,8 +124,8 @@
       </button>
 
       
-      <a href="http://cs.wcupa.edu/lngo/teaching" class="pull-left">
-        <img class="navbar-logo" src="../assets/img/wcupa.png" alt="West Chester University logo" />
+      <a href="https://www.palmetto.clemson.edu" class="pull-left">
+        <img class="navbar-logo" src="../assets/img/clemson.png" alt="West Chester University logo" />
       </a>
 
       
@@ -144,7 +145,49 @@
           <ul class="dropdown-menu">
             
             
-            <li><a href="../01-introduction/index.html">Introduction</a></li>
+            <li><a href="../01-introduction/index.html">Introduction to Machine Learning</a></li>
+            
+            
+            <li><a href="../02-sklearn-preprocessing/index.html">Introduction to Scikit Learn</a></li>
+            
+            
+            <li><a href="../03-sklearn-Data-Partition/index.html">Data Partition with Scikit-Learn</a></li>
+            
+            
+            <li><a href="../04.sklearn-Evaluation-Metrics/index.html">Evaluation Metrics with Scikit-Learn</a></li>
+            
+            
+            <li><a href="../05-Training_Regression/index.html">Training Machine Learning model using Regression Method</a></li>
+            
+            
+            <li><a href="../06-Training_Tree/index.html">Training Machine Learning model using Tree-based model</a></li>
+            
+            
+            <li><a href="../07-Training_Ensemble/index.html">Training Machine Learning model using Ensemble approach</a></li>
+            
+            
+            <li><a href="../08-Model_Based/index.html">Training Machine Learning model using Model based Prediction</a></li>
+            
+            
+            <li><a href="../09-Regularization/index.html">Regularization and Variable Selection</a></li>
+            
+            
+            <li><a href="../10-Dimension-Reduction/index.html">Dimension Reduction</a></li>
+            
+            
+            <li><a href="../11-Neural-Network/index.html">Neural Network</a></li>
+            
+            
+            <li><a href="../12-Support%20Vector%20Machine/index.html">Support Vector Machine</a></li>
+            
+            
+            <li><a href="../13-KNN/index.html">K-Nearest Neighbour</a></li>
+            
+            
+            <li><a href="../14-Unsupervised-Learning/index.html">Unsupervised Learning</a></li>
+            
+            
+            <li><a href="../15-Mini-Project/index.html">Mini-Project</a></li>
             
 	    <li role="separator" class="divider"></li>
             <li><a href="../aio/index.html">All in one page (Beta)</a></li>
@@ -160,10 +203,10 @@
             <li><a href="../reference.html">Reference</a></li>
             
             
+            <li><a href="../Addon_DecisionTree/index.html">Detailed explanation on Decision Tree</a></li>
+            
+            
             <li><a href="../about/index.html">About</a></li>
-            
-            
-            <li><a href="../discuss/index.html">Discussion</a></li>
             
             
             <li><a href="../figures/index.html">Figures</a></li>
@@ -202,12 +245,82 @@
 
 
 
-<h1 class="maintitle"><a href="../index.html">Lesson Title</a>: Discussion</h1>
+<h1 class="maintitle"><a href="../index.html">Introduction to Machine Learning using Python</a>: Detailed explanation on Decision Tree</h1>
 
 
 
 <article>
-<p>FIXME</p>
+<h1 id="decision-tree">Decision Tree</h1>
+
+<p>Splitting algorithm</p>
+
+<ul>
+  <li>Gini Impurity: (Categorical)</li>
+  <li>Chi-Square index (Categorical)</li>
+  <li>Cross-Entropy &amp; Information gain (Categorical)</li>
+  <li>Reduction Variance (Continuous)</li>
+</ul>
+
+<h2 id="example-on-decision-tree">Example on Decision Tree</h2>
+<p>Assume we have a sample data of 30 students in the training set with three input variables Gender (Boy/ Girl), Class( IX/ X) and Height (5 to 6 ft); one output variable: Play_Cricket (binary)</p>
+<ul>
+  <li>15 out of these 30 play cricket in leisure time (15 Yes and 15 No)</li>
+  <li>predict who will play cricket during leisure period?</li>
+</ul>
+
+<p><img src="https://user-images.githubusercontent.com/43855029/121087243-30194280-c7b2-11eb-9832-7df802385977.png" alt="image" /></p>
+
+<p>This is a typical problem for Decision Tree algorithm</p>
+
+<p>Next we gonna use different splitting algorithm to split the nodes:</p>
+
+<h3 id="gini-impurity">Gini Impurity</h3>
+<p><img src="https://user-images.githubusercontent.com/43855029/121087017-e4669900-c7b1-11eb-9e6f-c0b47f1e0afb.png" alt="image" /></p>
+
+<p>As there are 3 input variables (Gender, Class, Height), the algorithm will be splitting for all variables and calculate the Gini Impurity correspondingly based on the above formulation:</p>
+
+<h4 id="splitting-based-on-gender">Splitting based on Gender:</h4>
+
+<p><img src="https://user-images.githubusercontent.com/43855029/121087345-4e7f3e00-c7b2-11eb-978f-790b9223a8c9.png" alt="image" /></p>
+
+<ul>
+  <li>The whole population of splitting is 30, the probability of Yes &amp; No are 50% for the whole sample</li>
+  <li>
+    <p>After splitting by Gender, the number of Male students is 20, the number of cricket player is 13, equivalent to 65% male population. Therefore Gini value of Male is: <img src="https://user-images.githubusercontent.com/43855029/121094477-b5095980-c7bc-11eb-8db4-45c572b87691.png" alt="image" /></p>
+  </li>
+  <li>
+    <p>the number of Female students is 10, the number of cricket player is 2, equivalent to 20% female population. Therefore Gini value of Female is: <img src="https://user-images.githubusercontent.com/43855029/121094541-cfdbce00-c7bc-11eb-803f-493a141718f5.png" alt="image" /></p>
+  </li>
+  <li>The Gini Impurity for Gender splitting is: <img src="https://user-images.githubusercontent.com/43855029/121094621-ee41c980-c7bc-11eb-9c43-7d6c50124c13.png" alt="image" /></li>
+</ul>
+
+<h4 id="similarly-splitting-based-on-height">Similarly, splitting based on Height:</h4>
+
+<p><img src="https://user-images.githubusercontent.com/43855029/121094742-17faf080-c7bd-11eb-8131-dc7a16a6f00a.png" alt="image" /></p>
+
+<ul>
+  <li>The Gini Impurity for Height splitting is 0.5</li>
+</ul>
+
+<h4 id="splitting-based-on-class">Splitting based on Class:</h4>
+
+<p><img src="https://user-images.githubusercontent.com/43855029/121094840-3eb92700-c7bd-11eb-925b-d34cd37130a6.png" alt="image" /></p>
+
+<ul>
+  <li>The Gini Impurity for Class splitting is 0.49</li>
+</ul>
+
+<p>Base on the 3 Gini Impurity on the splitting, we go with the smallest values, which is splitting by Gender.</p>
+
+<p>The process is continue with the next nodes with other variables.</p>
+
+<h3 id="chi-squared">Chi-Squared</h3>
+
+<p><img src="https://user-images.githubusercontent.com/43855029/121095363-37464d80-c7be-11eb-87bc-dd2fa3093c2c.png" alt="image" /></p>
+
+<h3 id="entropy">Entropy</h3>
+
+<p><img src="https://user-images.githubusercontent.com/43855029/121095141-c56e0400-c7bd-11eb-91ce-f8da11ad66aa.png" alt="image" /></p>
 
 
 </article>
@@ -225,7 +338,7 @@
   <div class="row">
     <div class="col-md-6 copyright" align="left">
 	
-	Licensed under <a href="">CC-BY 4.0</a> 2018–2020
+	Licensed under <a href="">CC-BY 4.0</a> 2018–2022
 	by <a href="">The Carpentries</a>
         <br>
         Licensed under <a href="">CC-BY 4.0</a> 2016–2018

@@ -19,7 +19,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="last-modified" content="2020-05-15 18:39:07 -0400">
+    <meta http-equiv="last-modified" content="2022-02-10 18:19:54 -0500">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- meta "search-domain" used for google site search function google_search() -->
     <meta name="search-domain" value="">
@@ -27,6 +27,8 @@
     <link rel="stylesheet" type="text/css" href="./assets/css/bootstrap-theme.css" />
     <link rel="stylesheet" type="text/css" href="./assets/css/lesson.css" />
     <link rel="stylesheet" type="text/css" href="./assets/css/syntax.css" />
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js?config=TeX-MML-AM_CHTML'></script>
+
 
     
 
@@ -46,7 +48,7 @@
     <link rel="icon" type="image/png" href="./assets/favicons/swc/favicon-32x32.png" sizes="32x32" />
     <link rel="icon" type="image/png" href="./assets/favicons/swc/favicon-16x16.png" sizes="16x16" />
     <link rel="icon" type="image/png" href="./assets/favicons/swc/favicon-128.png" sizes="128x128" />
-    <meta name="application-name" content="Software Carpentry - Lesson Title"/>
+    <meta name="application-name" content="Software Carpentry - Introduction to Machine Learning using Python"/>
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-TileImage" content="./assets/favicons/swc/mstile-144x144.png" />
     <meta name="msapplication-square70x70logo" content="./assets/favicons/swc/mstile-70x70.png" />
@@ -63,7 +65,7 @@
 	<![endif]-->
 
   <title>
-  Setup &ndash; Lesson Title
+  Setup scikit-learn kernel in Palmetto's JupyterLab &ndash; Introduction to Machine Learning using Python
   </title>
 
   </head>
@@ -73,11 +75,10 @@
 
 
 <div class="panel panel-default life-cycle">
-  <div id="life-cycle" class="panel-body pre-alpha">
-    This lesson is still being designed and assembled (Pre-Alpha version)
+  <div id="life-cycle" class="panel-body beta">
+    This lesson is being piloted (Beta version)
   </div>
 </div>
-
 
 
 
@@ -123,8 +124,8 @@
       </button>
 
       
-      <a href="http://cs.wcupa.edu/lngo/teaching" class="pull-left">
-        <img class="navbar-logo" src="./assets/img/wcupa.png" alt="West Chester University logo" />
+      <a href="https://www.palmetto.clemson.edu" class="pull-left">
+        <img class="navbar-logo" src="./assets/img/clemson.png" alt="West Chester University logo" />
       </a>
 
       
@@ -144,7 +145,49 @@
           <ul class="dropdown-menu">
             
             
-            <li><a href="./01-introduction/index.html">Introduction</a></li>
+            <li><a href="./01-introduction/index.html">Introduction to Machine Learning</a></li>
+            
+            
+            <li><a href="./02-sklearn-preprocessing/index.html">Introduction to Scikit Learn</a></li>
+            
+            
+            <li><a href="./03-sklearn-Data-Partition/index.html">Data Partition with Scikit-Learn</a></li>
+            
+            
+            <li><a href="./04.sklearn-Evaluation-Metrics/index.html">Evaluation Metrics with Scikit-Learn</a></li>
+            
+            
+            <li><a href="./05-Training_Regression/index.html">Training Machine Learning model using Regression Method</a></li>
+            
+            
+            <li><a href="./06-Training_Tree/index.html">Training Machine Learning model using Tree-based model</a></li>
+            
+            
+            <li><a href="./07-Training_Ensemble/index.html">Training Machine Learning model using Ensemble approach</a></li>
+            
+            
+            <li><a href="./08-Model_Based/index.html">Training Machine Learning model using Model based Prediction</a></li>
+            
+            
+            <li><a href="./09-Regularization/index.html">Regularization and Variable Selection</a></li>
+            
+            
+            <li><a href="./10-Dimension-Reduction/index.html">Dimension Reduction</a></li>
+            
+            
+            <li><a href="./11-Neural-Network/index.html">Neural Network</a></li>
+            
+            
+            <li><a href="./12-Support%20Vector%20Machine/index.html">Support Vector Machine</a></li>
+            
+            
+            <li><a href="./13-KNN/index.html">K-Nearest Neighbour</a></li>
+            
+            
+            <li><a href="./14-Unsupervised-Learning/index.html">Unsupervised Learning</a></li>
+            
+            
+            <li><a href="./15-Mini-Project/index.html">Mini-Project</a></li>
             
 	    <li role="separator" class="divider"></li>
             <li><a href="./aio/index.html">All in one page (Beta)</a></li>
@@ -160,10 +203,10 @@
             <li><a href="./reference.html">Reference</a></li>
             
             
+            <li><a href="./Addon_DecisionTree/index.html">Detailed explanation on Decision Tree</a></li>
+            
+            
             <li><a href="./about/index.html">About</a></li>
-            
-            
-            <li><a href="./discuss/index.html">Discussion</a></li>
             
             
             <li><a href="./figures/index.html">Figures</a></li>
@@ -202,12 +245,67 @@
 
 
 
-<h1 class="maintitle"><a href="./index.html">Lesson Title</a>: Setup</h1>
+<h1 class="maintitle"><a href="./index.html">Introduction to Machine Learning using Python</a>: Setup scikit-learn kernel in Palmetto's JupyterLab</h1>
 
 
 
 <article>
-<p>FIXME</p>
+<p>We will use Palmetto cluster for this workshop with Jupyter Lab.</p>
+
+<p>Please follow this guideline to create a new conda environment and install scikit-learn package.
+Log into <a href="https://openod02.palmetto.clemson.edu/">Clemson’s OpenOnDemand</a></p>
+
+<p><img src="../fig/setup/01.png" style="height:400px" /></p>
+
+<p>Under <code class="language-plaintext highlighter-rouge">Clusters</code> select <code class="language-plaintext highlighter-rouge">Palmetto Shell Access</code></p>
+
+<p><img src="../fig/setup/02.png" style="height:400px" /></p>
+
+<p>Log into the Palmetto Command Line Shell</p>
+
+<p><img src="../fig/setup/03.png" style="height:800px" /></p>
+
+<p>Run the following <code class="language-plaintext highlighter-rouge">qsub</code> command</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>qsub <span class="nt">-I</span> <span class="nt">-l</span> <span class="k">select</span><span class="o">=</span>1:ncpus<span class="o">=</span>8:mem<span class="o">=</span>32gb,walltime<span class="o">=</span>24:00:00
+</code></pre></div></div>
+
+<p>Next, run the following commands.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nv">$ </span>module load anaconda3/2021.05-gcc/8.3.1
+<span class="nv">$ </span>conda create <span class="nt">-n</span> skln <span class="nv">python</span><span class="o">=</span>3.8 <span class="nt">-y</span>
+<span class="nv">$ </span><span class="nb">source </span>activate skln
+<span class="nv">$ </span>conda <span class="nb">install </span>numpy pandas scikit-learn seaborn matplotlib jupyterlab <span class="nt">-y</span>
+</code></pre></div></div>
+
+<p>=&gt; Note: while using <strong>skln</strong> conda environment, if we are missing anything, we can always come back and update using <strong>pip install</strong>
+or <strong>conda install</strong> method.</p>
+
+<p>Go back to OpenOnDemand Dashboard, under <code class="language-plaintext highlighter-rouge">Interactive Apps</code> select <code class="language-plaintext highlighter-rouge">Jupyter Notebook</code></p>
+
+<p><img src="../fig/setup/04.png" style="height:500px" /></p>
+
+<p>Make the selection on the Jupyter Notebook App as follows:</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">Anaconda Version</code>: <code class="language-plaintext highlighter-rouge">anaconda3/2021.05-gcc/8.3.1</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Path to Python virtual/conda environment</code>: <code class="language-plaintext highlighter-rouge">source activate skln</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Notebook Workflow</code>: <code class="language-plaintext highlighter-rouge">Standard Jupyter Notebook</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Number of resource chunks (select)</code>: <code class="language-plaintext highlighter-rouge">1</code></li>
+  <li><code class="language-plaintext highlighter-rouge">CPU cores per chunk (ncpus)</code>: <code class="language-plaintext highlighter-rouge">8</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Amount of memory per chunk (mem)</code>: <code class="language-plaintext highlighter-rouge">32gb</code></li>
+  <li><code class="language-plaintext highlighter-rouge">Walltime</code>: <code class="language-plaintext highlighter-rouge">04:00:00</code></li>
+</ul>
+
+<p>Click <code class="language-plaintext highlighter-rouge">Launch</code>.</p>
+
+<p>Click <code class="language-plaintext highlighter-rouge">Connect to Jupyter</code> once the job is ready.</p>
+
+<p><img src="../fig/setup/05.png" style="height:300px" /></p>
+
+<p>Open a new notebook using the default <code class="language-plaintext highlighter-rouge">Python 3</code> kernel. Test for the valid installation of <code class="language-plaintext highlighter-rouge">scikit-learn</code>.</p>
+
+<p><img src="../fig/setup/06.png" style="height:250px" /></p>
 
 
 </article>
@@ -225,7 +323,7 @@
   <div class="row">
     <div class="col-md-6 copyright" align="left">
 	
-	Licensed under <a href="">CC-BY 4.0</a> 2018–2020
+	Licensed under <a href="">CC-BY 4.0</a> 2018–2022
 	by <a href="">The Carpentries</a>
         <br>
         Licensed under <a href="">CC-BY 4.0</a> 2016–2018

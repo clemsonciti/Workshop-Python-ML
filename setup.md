@@ -5,51 +5,60 @@ title: Setup scikit-learn kernel in Palmetto's JupyterLab
 We will use Palmetto cluster for this workshop with Jupyter Lab.
 
 Please follow this guideline to create a new conda environment and install scikit-learn package.
+Log into [Clemson's OpenOnDemand](https://openod02.palmetto.clemson.edu/)
 
-- Open any terminal 
-  - **MobaXTerm** for Windows OS
-  - **Terminal** for MacOS & Linux platform
-  - **Terminal** in JupyterHub platform (https://www.palmetto.clemson.edu/jhub)
-  - **Palmetto Shell Access** in Open OnDemand (https://openod02.palmetto.clemson.edu/)
+<img src="../fig/setup/01.png" style="height:400px">
 
-Below is the setup using Jupyter Hub:
+Under `Clusters` select `Palmetto Shell Access`
 
-![image](https://user-images.githubusercontent.com/43855029/120862838-98201c80-c557-11eb-8c80-73832a802412.png)
+<img src="../fig/setup/02.png" style="height:400px">
 
-- Login to Palmetto login node: your_username@login001
-- Request for a compute node with simple configuration: (**Note**: for JupyterHub platform above, you do not need to request for a compute node)
+Log into the Palmetto Command Line Shell
+
+<img src="../fig/setup/03.png" style="height:800px">
+
+Run the following `qsub` command
 
 ```bash
-$ qsub -I -l select=1:ncpus=8:mem=32gb:interconnect=any,walltime=24:00:00
+$ qsub -I -l select=1:ncpus=8:mem=32gb,walltime=24:00:00
 ```
-Next:
 
-*JupyterHub platform, start from here:*
-- Load module
-- Create conda environment:
-- Once done, activate the environment and install numpy, pandas, scikit-learn, matplotlib, seaborn
+Next, run the following commands. 
 
 ```bash
-$ module load anaconda3/2020.07-gcc/8.3.1
+$ module load anaconda3/2021.05-gcc/8.3.1
 $ conda create -n skln python=3.8 -y
 $ source activate skln
-$ conda install numpy pandas scikit-learn seaborn matplotlib -y
+$ conda install numpy pandas scikit-learn seaborn matplotlib jupyterlab -y
 ```
 
 => Note: while using **skln** conda environment, if we are missing anything, we can always come back and update using **pip install**
 or **conda install** method.
 
-- Last step: create Jupyter Hub kernel in order to work with Jupyter Notebook
+Go back to OpenOnDemand Dashboard, under `Interactive Apps` select `Jupyter Notebook`
 
-```bash
-$ conda install jupyter -y
-$ python -m ipykernel install --user --name skln --display-name "ML_SKLN"
-```
+<img src="../fig/setup/04.png" style="height:500px">
+
+Make the selection on the Jupyter Notebook App as follows:
+
+- `Anaconda Version`: `anaconda3/2021.05-gcc/8.3.1`
+- `Path to Python virtual/conda environment`: `source activate skln`
+- `Notebook Workflow`: `Standard Jupyter Notebook`
+- `Number of resource chunks (select)`: `1`
+- `CPU cores per chunk (ncpus)`: `8`
+- `Amount of memory per chunk (mem)`: `32gb`
+- `Walltime`: `04:00:00`
+
+Click `Launch`. 
+
+Click `Connect to Jupyter` once the job is ready. 
+
+<img src="../fig/setup/05.png" style="height:300px">
+
+Open a new notebook using the default `Python 3` kernel. Test for the valid installation of `scikit-learn`. 
+
+<img src="../fig/setup/06.png" style="height:250px">
 
 
-- Open Jupyter Lab in Palmetto, login and see if you have **ML_SKLN** kernel created
-https://www.palmetto.clemson.edu/jhub/hub/home
-
-![image](https://user-images.githubusercontent.com/43855029/117862252-74bbc780-b260-11eb-8dbb-4a07ae955c54.png)
 
 {% include links.md %}
