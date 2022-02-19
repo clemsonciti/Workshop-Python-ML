@@ -78,7 +78,17 @@ y = iris.target
 X_train, X_test, y_train, y_test = train_test_split(X,y,train_size=0.6,random_state=123)
 ```
 
-Fit Support Vector Classifier model
+Fit Support Vector Classifier model. We need to install another package
+on the fly. Make sure that you confirm the pip command is the one built
+into the `skln` environment. 
+
+```python
+!which pip
+!pip install mlxtend
+```
+
+
+
 ```python
 from sklearn.svm import SVC
 from mlxtend.plotting import plot_decision_regions

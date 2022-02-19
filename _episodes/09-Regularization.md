@@ -56,7 +56,7 @@ Setting up training/testing model using the Stanford's [prostate cancer data](ht
 ```python
 import pandas as pd
 import numpy as np
-data=pd.read_csv("https://raw.githubusercontent.com/vuminhtue/Machine-Learning-Python/master/data/prostate_data.csv")
+data=pd.read_csv("/zfs/citi/workshop_data/python_ml/prostate_data.csv")
 ind_train = data["train"]=="T"
 data = data.drop(["train"],axis=1)
 X_train = data.drop(["lpsa"],axis=1)[ind_train]
