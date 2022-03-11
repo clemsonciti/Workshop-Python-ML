@@ -7,15 +7,15 @@ We will use Palmetto cluster for this workshop with Jupyter Lab.
 Please follow this guideline to create a new conda environment and install scikit-learn package.
 Log into [Clemson's OpenOnDemand](https://openod02.palmetto.clemson.edu/)
 
-<img src="../fig/setup/01.png" style="height:400px">
+<img src="fig/setup/01.png" style="height:400px">
 
 Under `Clusters` select `Palmetto Shell Access`
 
-<img src="../fig/setup/02.png" style="height:400px">
+<img src="fig/setup/02.png" style="height:400px">
 
 Log into the Palmetto Command Line Shell
 
-<img src="../fig/setup/03.png" style="height:800px">
+<img src="fig/setup/03.png" style="height:800px">
 
 Run the following `qsub` command
 
@@ -37,7 +37,7 @@ or **conda install** method.
 
 Go back to OpenOnDemand Dashboard, under `Interactive Apps` select `Jupyter Notebook`
 
-<img src="../fig/setup/04.png" style="height:500px">
+<img src="fig/setup/04.png" style="height:500px">
 
 Make the selection on the Jupyter Notebook App as follows:
 
@@ -53,11 +53,11 @@ Click `Launch`.
 
 Click `Connect to Jupyter` once the job is ready. 
 
-<img src="../fig/setup/05.png" style="height:300px">
+<img src="fig/setup/05.png" style="height:300px">
 
 Open a new notebook using the default `Python 3` kernel. Test for the valid installation of `scikit-learn`. 
 
-<img src="../fig/setup/06.png" style="height:250px">
+<img src="fig/setup/06.png" style="height:250px">
 
 
 
