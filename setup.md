@@ -46,7 +46,8 @@ Make the selection on the Jupyter Notebook App as follows:
 - `Notebook Workflow`: `Standard Jupyter Notebook`
 - `Number of resource chunks (select)`: `1`
 - `CPU cores per chunk (ncpus)`: `8`
-- `Amount of memory per chunk (mem)`: `32gb`
+- `Amount of memory per chunk (mem)`: `15gb`
+- `Interconnect`: `1g - Ethernet older phases 1-6`
 - `Walltime`: `04:00:00`
 
 Click `Launch`. 
