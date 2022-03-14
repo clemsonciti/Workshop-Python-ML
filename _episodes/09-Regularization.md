@@ -16,6 +16,8 @@ keypoints:
 ## 9 Regularization
 - In order to reduce the Model Complexity or to avoid Multi-Collinearity, one needs to reduce the number of covariates 
 (or set the coefficient to be zero).
+  - Multi-colinearity: Some independent variables are
+  correlated. 
 - If the coefficients are too large, let’s penalize them to enforce them to be smaller
 - Regularization is a form of multilinear regression, that constrains/regularizes or shrinks the coefficient estimates towards zero.
 - In other words, this technique discourages learning a more complex or flexible model, so as to avoid the risk of overfitting
@@ -141,7 +143,7 @@ The plot shows different coefficients for all predictors with **𝜆** variation
 ![image](https://user-images.githubusercontent.com/43855029/121297875-f5ea9680-c8c0-11eb-96c7-b52291a7adbc.png)
 
 - In order to overcome the cons issue in Ridge Regression, the LASSO is introduced with the similar shrinkage parameter, but the different is not in square term of the coefficient but only absolute value
-- Similar to Ridge Regression, LASSO also shrink the coefficient, but **force** coefficients to be equal to 0. Making it ability to perform **feature selection**
+- Similar to Ridge Regression, LASSO also shrink the coefficient, but **force** coefficients to be equal to 0. Making it able to to perform **feature selection**
 - In statistics the coefficient esimated produced by this method is know as **L1 norm**
 
 #### 9.2.1 Implementation 
