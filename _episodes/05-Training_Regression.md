@@ -71,6 +71,9 @@ We can slightly improve this by using Polynomial Regression
 ![image](https://user-images.githubusercontent.com/43855029/115059030-f7e13c00-9eb3-11eb-9887-52461d7a87aa.png)
 
 In this study, let use polynomial regression with `degree of freedom=2`
+- Degree of freedom is an important concept but is not clearly explained
+in statistics textbook. 
+- [Read this!](https://www.nohsteachers.info//pcaso/ap_statistics/PDFs/DegreesOfFreedom.pdf)
 
 ```python
 from sklearn.preprocessing import PolynomialFeatures
