@@ -20,7 +20,7 @@ Log into the Palmetto Command Line Shell
 Run the following `qsub` command
 
 ```bash
-$ qsub -I -l select=1:ncpus=8:mem=32gb,walltime=24:00:00
+$ qsub -I -l select=1:ncpus=8:mem=15gb:interconnect=1g,walltime=24:00:00
 ```
 
 Next, run the following commands. 

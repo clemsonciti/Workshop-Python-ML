@@ -35,12 +35,10 @@ The `sklearn.datasets` package embeds some small sample [datasets](https://sciki
 
 For each dataset, there are 4 varibles:
 
-```
-- **data**: numpy array of predictors/X
-- **target**: numpy array of predictant/target/y
-- **feature_names**: names of all predictors in X
-- **target_names**: names of all predictand in y
-```
+- **data**: numpy array of predictors/`X`
+- **target**: numpy array of predictant/target/`y`
+- **feature_names**: names of all predictors in `X`
+- **target_names**: names of all predictand in `y`
 
 For example:
 
@@ -65,9 +63,6 @@ y = iris.target
 
 ## 3.2 Data splitting using `train_test_split`: **Single fold**
 Here we use `train_test_split` to randomly split 60% data for training and the rest for testing:
-
-![image](https://user-images.githubusercontent.com/43855029/114209883-22b81700-992d-11eb-83a4-c4ab1538a1e5.png)
-
 
 ```python
 from sklearn.model_selection import train_test_split
@@ -117,19 +112,8 @@ for train_index, test_index in kf10.split(X):
 
 ## 3.4 Data splitting using `Stratified K-fold`
 - StratifiedKFold takes the cross validation one step further: it ensures that the target has balance class distribution.
-- Look at the sample below:
-The target has imbalanced class distribution with 12 values of 1 and 4 values of 0. KFold will not take that into consideration when splitting the Fold
 
-![image](https://user-images.githubusercontent.com/43855029/120677513-2667a600-c465-11eb-814e-f4979ac9d123.png)
-
-Here is the reuslt if using K-Fold:
-
-![image](https://user-images.githubusercontent.com/43855029/120677884-8c542d80-c465-11eb-832a-bf05e1d73d28.png)
-
-Here is the result of using Stratified K-Fold:
-
-![image](https://user-images.githubusercontent.com/43855029/120677539-2d8eb400-c465-11eb-8227-9921b6f32362.png)
-
+Running Logistic Regression for Stratified KFold
 
 ```python
 from sklearn.model_selection import StratifiedKFold
@@ -152,4 +136,42 @@ for train_index, test_index in kf.split(X, y):
     y_pred = model.predict(X_test)
     print(f"Accuracy for the fold no. {i} on the test set: {accuracy_score(y_test, y_pred)}") 
     i += 1  
+```
+- Look at the sample below:
+  - The target has imbalanced class distribution with 12 values of `1.0` and 4 
+  values of `0.0`. KFold will not take that into consideration when splitting the Fold
+
+```python
+import pandas as pd
+data = [[0.43547, 1.0], [0.871825, 1.0], [0.835452, 1.0], [0.555067, 1.0],
+        [0.598458, 1.0], [0.297142, 1.0], [0.336659, 1.0], [0.397795, 1.0],
+        [0.206699, 1.0], [0.025118, 1.0], [0.816815, 1.0], [0.101904, 1.0],
+        [0.722744, 0.0], [0.049825, 0.0], [0.965084, 0.0], [0.928273, 0.0]]
+ 
+# Create the pandas DataFrame
+df = pd.DataFrame(data, columns=['col_a', 'target'])
+X = df.col_a
+y = df.target
+
+# print dataframe.
+df
+```
+
+Here is the result if using K-Fold:
+
+```python
+from sklearn.model_selection import KFold
+kf10 = KFold(n_splits=4,shuffle=True,random_state=20)
+for train_index, test_index in kf10.split(X):
+    print(train_index,test_index,sep="--")
+
+```
+Here is the result of using Stratified K-Fold:
+
+```python
+from sklearn.model_selection import StratifiedKFold
+kf = StratifiedKFold(n_splits=4, shuffle=True, random_state=123)
+
+for train_index, test_index in kf.split(X, y):
+    print(train_index,test_index,sep="--")
 ```
